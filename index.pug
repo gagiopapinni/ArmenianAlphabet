@@ -1,0 +1,184 @@
+doctype html
+html
+ head
+  meta(content='text/html', charset='UTF-8')
+  meta(name="viewport", content="width=device-width, initial-scale=1")
+  title="Armenian alphabet"
+  
+
+  link(rel="stylesheet", type="text/css", href="./src/css/index.css")
+  link(rel="stylesheet", type="text/css", href="./lib/bootstrap/bootstrap.css")
+  link(rel="stylesheet", type="text/css", href="./lib/fa/css/all.css")
+
+  script(src="./lib/modernizr-custom.js")
+  script(src="./lib/jquery-3.4.1.js")
+  script(src="./lib/popper.js")
+  script(src="./lib/bootstrap/bootstrap.js")
+
+  script(src="./src/js/letters.js")
+  script(src="./src/js/index.js")
+  
+ body.d-none
+
+  - for (var x = 1; x <= 39 ; x++) 
+    audio(id="l"+x+"_audio", preload="auto")
+      source(src="./src/audio/"+x+".ogg", type="audio/ogg")
+      source(src="./src/audio/"+x+".mp3", type="audio/mpeg")
+      source(src="./src/audio/"+x+".wav", type="audio/wav")
+
+  -
+   var letter = [["Աա","Բբ","Գգ","Դդ","Եե"],
+                 ["Զզ","Էէ","Ըը","Թթ","Ժժ"],
+                 ["Իի","Լլ","Խխ","Ծծ","Կկ"],
+                 ["Հհ","Ձձ","Ղղ","Ճճ","Մմ"],
+                 ["Յյ","Նն","Շշ","Ոո","Չչ"],
+                 ["Պպ","Ջջ","Ռռ","Սս","Վվ"],
+                 ["Տտ","Րր","Ցց","ՈՒու","Փփ"],
+                 ["Քք","և","Օօ","Ֆֆ"]];
+
+ 
+
+  .modal.fade.h5( id="information" , role="dialog", style="opacity:0.9;") 
+       .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title Information.
+                    button.close( type="button" , data-dismiss="modal" )
+                        span.h3(aria-hidden="true"  ) &times
+                .modal-body
+                    ul.nav.nav-tabs( id="langs",  role="tablist")
+                      li.nav-item
+                         a.nav-link.active(id="en-tab", data-toggle="tab", href="#en", role="tab", aria-controls="en", aria-selected="true") En
+ 
+                      li.nav-item
+                         a.nav-link(id="am-tab", data-toggle="tab", href="#am", role="tab", aria-controls="am", aria-selected="false") Am
+
+                      li.nav-item
+                         a.nav-link(id="ru-tab", data-toggle="tab", href="#ru", role="tab", aria-controls="ru", aria-selected="false") Ru
+ 
+                    .tab-content.mt-4
+                      .tab-pane.fade.show.active( id="en", role="tabpanel", aria-labelledby="en-tab")
+                        p.font-weight-bold Choose a letter to see it's hand-written form!
+                        p When studying armenian alphabet, it's a special struggle to remember the hand-written forms of letters, as for so many of them hand-written and printed forms vary drastically.
+                        p This page is a quick and handy reminder of hand-writen armenian alphabet!
+                        p Just pick a letter to see the exact way it should be hand-written!
+
+                      .tab-pane.fade( id="am", role="tabpanel", aria-labelledby="am-tab")
+                        p.font-weight-bold  Ընտրեք մի տառ, նրա ձեռագիր տարբերակը տեսնելու համար։
+                        p Այբուբենը սովորելիս խոչընդոտներից մեկը հանդիսանում էն ձեռագիր տառերը, քանի որ ձեռագիր և տպագիր տառերը էնքան տարբեր էն, որ ժամանակ առ ժամանակ դժվար է տպագիրը տեսնելիս հիշել կամ կռահել ձեռագիրը։
+                        p Հենց այտ խնթիրհը լուծելու համար ստեղծվել է այս էջը։
+                        p Ուղակի ընտրեք ցանկացած տպագիր տառը, նրա ճիշտ գրվածքը տեսնելու համար։
+
+                      .tab-pane.fade( id="ru", role="tabpanel", aria-labelledby="ru-tab")
+ 
+                        p.font-weight-bold Выберите печатную букву, чтобы увидеть её написание. 
+                        p При изучении армянского алфавита, одной из трудностей представлятся различие между печатными и прописными буквами.
+                        p Очень часто трудно вспомнить, или догадаться, каким образом должна быть написана та или иная печатная буква.
+                        p Для решения этой проблемы и была создана эта страница: выберите любую букву алфавита, чтобы увидеть увидеть ее написание.
+                  
+
+                
+                .modal-footer
+                    
+           
+  div
+    .row.no-gutters( style={
+                      "background-color":"black",
+                      "height":"150px"
+                   } )
+       .col-md-8.col-10.mx-auto(id ="header", style={"margin-bottom":"0px","max-width":"1200px"}) 
+        p.h1.pt-4.mb-5.mt-3( style={"font-family":"Norkirk", "color":"#fff"})
+               a Հայոց Ալբուբեն
+              
+  
+    .row.no-gutters( style={
+                      "background-color":"black",
+                     
+                   } )
+       .col.m-auto.text-right(id="svg_col", style={"margin-bottom":"0px"}) 
+          div( title="re-draw", style={display:"inline-block"})    
+           svg(id="svg_pad", cursor="pointer", width="200px", height="200px", viewBox="0 0 100 100", xmlns="http://www.w3.org/2000/svg")
+              g
+              line(x1="5", y1="60", x2="95", y2="60", stroke="#fff", "stroke-width"="1px","stroke-linecap"="round")
+       div.w-100.d-block.d-sm-none
+       .col.m-auto(id="info_col", style={"margin-bottom":"0px"})
+          div(style={display:"inline-block"})
+             table.table-sm.h5(id='info', style={margin:'5px','margin-bottom':'20px',color:'white'})             
+              tbody
+               tr
+                th(scope="row")
+                td(title="letter's number")
+                  span.font-weight-bold.font-italic №
+                  text(id="letter_number") ...
+     
+                  
+              
+              tbody
+               tr
+                th(scope="row")
+                td(title="letter's name")
+                  span.font-italic.h5 [
+                  text(id="letter_name") ...
+                  span.font-italic.h5 ]
+
+              
+              
+              tbody
+               tr
+                th(scope="row")
+                td
+                  input.p-0(id="progress_control",title="progress", style=" width:120px;", type="range", min='0', max='1', step='0.01')
+                  button.p-0.btn(id="sound_play" , title="pronunciation", style="margin-left:18px;margin-top:-13px; ")
+                     span.fa.fa-volume-up.fa-1.5x(style="color:white;opacity:0.8;")
+
+
+ 
+        
+ 
+      
+    .row.no-gutters( style={
+                      "background-color":"black",
+                      "height":"150px",
+                   } )
+        .col.mx-auto.text-center(style={"margin-bottom":"0px"}) 
+          div(style={display:"inline-block"})  
+                   button.btn(id="prev", title="previous")
+                     span.fa.fa-chevron-left.fa-2x(style="color:white;opacity:0.8;")
+
+                   button.btn(id="next", title="next")
+                     span.fa.fa-chevron-right.fa-2x(style="color:white;opacity:0.8;")
+
+             
+    .row.no-gutters.mt-5
+       .col.text-center()
+         p.h4(style={"margin":"0 0 30px 30px"}) 
+                 a Pick a letter <span class='text-muted'>/ Ընտրեք մի տառ </span>
+                 button.btn.p-0.mx-2.text-muted(style={cursor:"pointer"} data-toggle="modal",  data-target="#information")
+                  span.far.fa-question-circle.fa-2x(style={})
+         div.mx-auto(style={display:"inline-block"})
+          - for (var y = 0; y < 8; y++)  
+            div 
+             - for (var x = 0; x < 5; x++) 
+              -if(letter[y][x])  
+                .btn.btn-lg.my-3.mx-3.p-0(
+                         id= y*5+x
+                         class="letter",
+                         style={width:"70px",
+                                height:"70px",
+                                "line-height": "70px",
+                                "box-shadow": "0 7px 20px rgba(0,0,0,.07)",
+                                cursor:"pointer"
+                                })
+                  span(style={
+                     "font-family":"Hianali",
+                     "font-weight":"bold",
+                     "font-size":"30px"})= letter[y][x]
+
+
+
+             
+    .row.no-gutters.mt-5.mb-5
+       .col.text-center
+         a(href="", title="Source Code", style="cursor:pointer;")
+           img(src="./src/img/GitHub.png", alt="Source Code", style={width:"50px", height:"50px"})
+

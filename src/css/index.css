@@ -1,0 +1,27 @@
+
+html,
+body {
+	margin: 0;
+	height: 100%;
+        font-family:VarelaRound;
+
+
+}
+
+@font-face {
+   font-family: Hianali;
+   src: url(../../lib/fonts/Hianali.ttf);
+}
+
+
+@font-face {
+   font-family: Norkirk;
+   src: url(../../lib/fonts/NorKirk.ttf);
+}
+
+
+@font-face {
+   font-family: VarelaRound;
+   src: url(../../lib/fonts/VarelaRound.ttf);
+}
+
