@@ -21,6 +21,17 @@ html
   
  body.d-none
 
+  script(type="text/javascript").
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(65041396, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+
+
   - for (var x = 1; x <= 39 ; x++) 
     audio(id="l"+x+"_audio", preload="auto")
       source(src="./src/audio/"+x+".ogg", type="audio/ogg")
