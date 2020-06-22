@@ -109,13 +109,13 @@ html
                    } )
        .col.m-auto.text-right(id="svg_col", style={"margin-bottom":"0px"}) 
           div( title="re-draw", style={display:"inline-block"})    
-           svg(id="svg_pad", cursor="pointer", width="200px", height="200px", viewBox="0 0 100 100", xmlns="http://www.w3.org/2000/svg")
+           svg(id="svg_pad", cursor="pointer", width="220px", height="220px", viewBox="0 0 100 100", xmlns="http://www.w3.org/2000/svg")
               g
               line(x1="5", y1="60", x2="95", y2="60", stroke="#fff", "stroke-width"="1px","stroke-linecap"="round")
        div.w-100.d-block.d-sm-none
        .col.m-auto(id="info_col", style={"margin-bottom":"0px"})
           div(style={display:"inline-block"})
-             table.table-sm.h5(id='info', style={margin:'5px','margin-bottom':'20px',color:'white'})             
+             table.table-sm.h5(id='info', style={'margin-top':'9px','margin-bottom':'20px',color:'white'})             
               tbody
                tr
                 th(scope="row")
@@ -139,8 +139,8 @@ html
                tr
                 th(scope="row")
                 td
-                  input.p-0(id="progress_control",title="progress", style=" width:120px;", type="range", min='0', max='1', step='0.01')
-                  button.p-0.btn(id="sound_play" , title="pronunciation", style="margin-left:18px;margin-top:-13px; ")
+                  input.p-0(id="progress_control",title="progress", style=" width:140px;", type="range", min='0', max='1', step='0.01')
+                  button.p-0.btn(id="sound_play" , title="pronunciation", style="margin-right:7px;margin-left:18px;margin-top:-13px; ")
                      span.fa.fa-volume-up.fa-1.5x(style="color:white;opacity:0.8;")
 
 
