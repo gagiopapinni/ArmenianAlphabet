@@ -103,7 +103,8 @@ function pronounceLetter(letter_num = 0){
  
    letter_num = parseInt(letter_num);
    const audio_id = "#l"+(letter_num+1)+"_audio";
-   $(audio_id)[0].play();
+   if($(audio_id).length)
+       $(audio_id)[0].play();
 
 }
 
@@ -122,8 +123,27 @@ function goTop(cb){
 
 }
 
+function loadAudio(){
+   
+    let source = (src, type)=>{
+      let res = document.createElement("source");
+      $(res).attr("src",src);
+      $(res).attr("type",type);
+      return res;
+    }
+    for(let i = 1;i<=39;i++){
+      let audio = document.createElement("audio");
+      $(audio).attr("id","l"+i+"_audio");
+      $(audio).append(source("./src/audio/"+i+".ogg","audio/ogg"));
+      $(audio).append(source("./src/audio/"+i+".mp3","audio/mpeg"));
+      $(audio).append(source("./src/audio/"+i+".wav","audio/wav"));
+      $('body').append(audio);
+    }
+
+}
 
 $(window).on("load",()=>{ 
+   loadAudio();
 
    let current_letter = 0;
    onResize();
@@ -173,20 +193,5 @@ $(window).on("load",()=>{
    $(window).on("resize",onResize)
    
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
