@@ -46,6 +46,28 @@ html
 
  
 
+  .modal.fade.h5( id="contactModal" , role="dialog") 
+       .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title Contact Me!
+                    button.close( type="button" , data-dismiss="modal" )
+                        span.h3(aria-hidden="true"  ) &times
+                .modal-body.text-center.mx-5()
+                   form(action="https://formspree.io/f/mvovqwpw", method="POST")
+                     div.form-group
+                       label(for="email") Email
+                       input.form-control(id="email", name="_replyto", type="email", placeholder="example@mail.com", required)
+                     div.form-group
+                       label(for="msg") Message
+                       textarea.form-control(id="msg", name="message", type="text", maxlength="2000", placeholder="This is amazing!", required)
+
+                     <!-- other form fields go here -->
+
+                     button.btn.btn-secondary(type="submit") Send
+                .modal-footer
+
+
   .modal.fade.h5( id="information" , role="dialog", style="opacity:0.9;") 
        .modal-dialog(role="document")
             .modal-content
@@ -159,10 +181,6 @@ html
                      span.fa.fa-chevron-right.fa-2x(style="color:white;opacity:0.8;")
 
   
-    .row.no-gutters.mt-2.mb-1
-       .col.text-center
-         div(class="addthis_inline_share_toolbox")
-           
     .row.no-gutters.mt-5
        .col.text-center()
          p.h4(style={"margin":"0 0 30px 30px"}) 
@@ -193,6 +211,10 @@ html
              
     .row.no-gutters.mt-5.mb-5
        .col.text-center
-         a(href="https://github.com/gagiopapinni/ArmenianAlphabet", title="Source Code", style="cursor:pointer;")
-           img(src="./src/img/GitHub.png", alt="Source Code", style={width:"50px", height:"50px"})
+         div(class="addthis_inline_share_toolbox")
+         .text-muted.mt-3
+             text Made with ❤ by 
+             a(href="https://github.com/gagiopapinni/ArmenianAlphabet") Gagiopapinni
+             text.mx-2 |
+             a(data-toggle="modal", href="#contactModal") Contact
   script(type="text/javascript",  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f94465ea846c922")
