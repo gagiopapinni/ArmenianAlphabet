@@ -48,24 +48,28 @@ html
 
   .modal.fade.h5( id="contactModal" , role="dialog") 
        .modal-dialog(role="document")
-            .modal-content
-                .modal-header
-                    h5.modal-title Contact Me!
-                    button.close( type="button" , data-dismiss="modal" )
+            .modal-content.pt-3.pb-3
+                .modal-header(style="border-bottom: 0 none;")
+                     h4.modal-title.mx-auto Contact Me!
+                     button.close( type="button" , data-dismiss="modal", style="margin-left:-2rem;" )
                         span.h3(aria-hidden="true"  ) &times
-                .modal-body.text-center.mx-5()
+                .modal-body.text-center.mx-4()
+
                    form(action="https://formspree.io/f/mvovqwpw", method="POST")
+
                      div.form-group
-                       label(for="email") Email
-                       input.form-control(id="email", name="_replyto", type="email", placeholder="example@mail.com", required)
+
+                       input.form-control(id="name", name="name", type="text", placeholder="Name", required)
                      div.form-group
-                       label(for="msg") Message
-                       textarea.form-control(id="msg", name="message", type="text", maxlength="2000", placeholder="This is amazing!", required)
+
+                       input.form-control(id="email", name="_replyto", type="email", placeholder="E-mail", required)
+                     div.form-group
+
+                       textarea.form-control(id="msg", name="message", type="text", maxlength="2000", placeholder="Message", required)
 
                      <!-- other form fields go here -->
 
-                     button.btn.btn-secondary(type="submit") Send
-                .modal-footer
+                     button.btn.btn-secondary.mt-3(type="submit") Send
 
 
   .modal.fade.h5( id="information" , role="dialog", style="opacity:0.9;") 
