@@ -192,6 +192,15 @@ $(window).on("load",()=>{
 
    $(window).on("resize",onResize)
    
+   $("#heart").on("click",(e)=>{ 
+
+       let current = $("#heart").text()
+       if(current === "❤" && Math.random()>0.9){
+          $("#heart").text("MG");
+          setTimeout(()=>$("#heart").text("❤"), 2000)
+       }
+
+   });
 })
 
 
