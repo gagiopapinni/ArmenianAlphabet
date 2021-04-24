@@ -214,13 +214,17 @@ html
                 div.w-100.d-block.d-sm-none
 
 
-             
+
     .row.no-gutters.mt-5
        .col.text-center
-         div(class="addthis_inline_share_toolbox")
+         //div(class="addthis_inline_share_toolbox")
+
+         div.mb-4
+             a(id="forgetMeNotLink", href="https://www.nytimes.com/topic/destination/armenian-genocide" )
+              img(src="/src/img/ForgetMeNot.png",  style={width:'60px'})
          .text-muted.mt-3
              text Made with <span id="heart" class="font-weight-bold">❤</span> by 
              a(href="https://github.com/gagiopapinni/ArmenianAlphabet") Gagiopapinni
              text.mx-2 |
              a(data-toggle="modal", href="#contactModal") Contact
-  script(type="text/javascript",  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f94465ea846c922")
+  //script(type="text/javascript",  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f94465ea846c922")

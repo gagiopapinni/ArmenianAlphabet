@@ -201,6 +201,23 @@ $(window).on("load",()=>{
        }
 
    });
+
+
+   
+   const linksForgetMeNot = [
+          "https://www.nytimes.com/topic/destination/armenian-genocide",
+          "https://www.theguardian.com/world/armenian-genocide",
+          "https://www.france24.com/en/tag/armenian-genocide/",
+          "http://www.genocide-museum.am/eng/online_exhibition_5.php",
+          "https://en.wikipedia.org/wiki/Press_coverage_during_the_Armenian_Genocide",
+   ];
+
+   const setHref = () => {
+    const randomLinkIdx = Math.floor( Math.random() * (linksForgetMeNot.length-1) );
+    $("#forgetMeNotLink").attr("href", linksForgetMeNot[randomLinkIdx]);
+   }
+   $("#forgetMeNotLink").on("mousedown", setHref);
+
 })
 
 
